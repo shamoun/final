@@ -1,1 +1,44 @@
-TBD
+<font face="verdana"><font color= purple>
+<% the_id = params["id"] %>
+<% the_class = Classes.read(the_id) %>
+<% reviews = Rating.where("class_id" => the_class["id"]) %>
+<% avgrating = Rating.where("class_id" => the_class["id"]).average("rating") %>
+
+<h1><%= the_class["class_name"] %></h1>
+</font>
+
+<font color = black>
+<table>
+<style>
+table,th,td
+{
+border:1px solid #C0C0C0;
+border-collapse:collapse
+}
+</style>
+<table style="width:600px">
+
+<% all_reviews = Rating.where("class_id" => the_class["id"]) %>
+
+  <thead>
+  <tr>
+    <th> How likely would you be to recommend this class (1-10) </th>
+    <th> Qualitative feedback </th>
+  </tr>
+  </thead>
+  <tbody>
+<% all_reviews.each do |feedback| %>
+  <tr>
+
+    <td> <%= feedback["rating"] %> </td>
+    <td> <%= feedback["feedback"] %> </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+</style>
+
+<br>
+
+<%= link_to "Go back to class list", "/classes" %> </td>
+</font>
