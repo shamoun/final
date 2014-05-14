@@ -33,7 +33,6 @@ Professors.create("pfirst_name" => "Brian", "plast_name" => "Uzzi", "gender" => 
 Professors.create("pfirst_name" => "Craig", "plast_name" => "Garthwaite", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Garthwaite_Craig_2011.ashx")
 Professors.create("pfirst_name" => "Edward F.X.", "plast_name" => "Hughes", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Hughes_Edward13_RGB.ashx")
 
-
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
