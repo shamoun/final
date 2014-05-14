@@ -1,7 +1,7 @@
 Professors:
   - pfirst_name: string
   - plast_name: string
-  - gender: Boolean
+  - gender: boolean
   - photo_url: string
 
 Classes:
