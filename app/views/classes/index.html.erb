@@ -10,7 +10,7 @@ border-collapse:collapse
 </style>
 <table style="width:600px">
 
-<% all_classes = Classes.group("dept").order("number" desc) %>
+<% all_classes = Classes.group("dept").order("class_no desc") %>
 
   <thead>
   <tr>
@@ -21,8 +21,8 @@ border-collapse:collapse
   </tr>
   </thead>
   <tbody>
-<% all_classes.each do |class| %>
 
+<% all_classes.each do |class| %>
 
   <tr>
     <% name = class["class_name"] %>
