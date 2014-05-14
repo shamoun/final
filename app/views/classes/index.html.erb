@@ -11,28 +11,30 @@ border-collapse:collapse
 <table style="width:600px">
 
 <% all_classes = Classes.group("dept").order("class_no desc") %>
-
   <thead>
   <tr>
     <th> Department </th>
-    <th> Class number </th>
+    <th> Class Number </th>
     <th> Class name </th>
     <th> Average Rating </th>
   </tr>
   </thead>
   <tbody>
 
-<% all_classes.each do |class| %>
+<% all_classes.each do |zebra| %>
 
   <tr>
-    <% name = class["class_name"] %>
-    <% avgrating = Classes.where("class_name" => name).average("rating") %>
-    <td><%= link_to name, "/classes/#{{class["id"]}" %> </td>
-    <td><%= dept %> </td>
-    <td><%= class_no %> </td>
-    <td><%= avgrating %> </td>
+    <% name = zebra["class_name"] %>
+    <% id = name["id"] %>
+    <% avgrating = Rating.where("class_id" => id).average("rating") %>
+    <td><%= zebra["dept"] %></td>
+    <td><%= zebra["class_no"] %></td>
+    <td><%= link_to name, "/classes/#{zebra["id"]}" %></td>
+    <td><%= avgrating %></td>
 
   </tr>
 <% end %>
 </tbody>
+</table>
+</style>
 </table>
