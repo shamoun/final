@@ -1,11 +1,13 @@
 Professors:
-  - name: string
+  - pfirst_name: string
+  - plast_name: string
   - gender: string
   - photo_url: string
 
 Classes:
-  - class_name: string
+  - dept: string
   - class_no: integer
+  - class_name: string
 
 Rating:
   - class_id: integer
