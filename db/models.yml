@@ -4,13 +4,13 @@ Professor:
   - gender: boolean
   - photo_url: string
 
-Class:
+Course:
   - dept: string
-  - class_no: integer
-  - class_name: string
+  - course_no: integer
+  - course_name: string
 
 Rating:
-  - class_id: integer
+  - course_id: integer
   - professor_id: integer
   - quarter: string
   - rating: integer
