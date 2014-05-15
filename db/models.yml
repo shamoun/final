@@ -1,10 +1,10 @@
-Professors:
+Professor:
   - pfirst_name: string
   - plast_name: string
   - gender: boolean
   - photo_url: string
 
-Classes:
+Class:
   - dept: string
   - class_no: integer
   - class_name: string

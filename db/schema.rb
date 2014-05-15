@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514193620) do
+ActiveRecord::Schema.define(version: 20140515142823) do
 
   create_table "classes", force: true do |t|
     t.string  "class_name"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20140514193620) do
   end
 
   create_table "professors", force: true do |t|
-    t.string  "name"
     t.boolean "gender"
     t.string  "photo_url"
     t.string  "pfirst_name"
