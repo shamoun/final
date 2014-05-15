@@ -1,0 +1,35 @@
+<h2> <font face="verdana" color=purple>Professor overview</font> </h2>
+
+<table>
+<style>
+table,th,td
+{
+border:1px solid #C0C0C0;
+border-collapse:collapse
+}
+</style>
+<table style="width:600px">
+
+<% all_professors = Professor.order("plast_name asc") %>
+  <thead>
+  <tr>
+    <th> Last name </th>
+    <th> First name </th>
+    <th> Photo </th>
+  </tr>
+  </thead>
+  <tbody>
+
+<% all_professors.each do |zebra| %>
+
+  <tr>
+    <td><%= link_to zebra["plast_name"],"/professors/#{zebra["id"]}"%></td>
+    <td><%= zebra["pfirst_name"] %></td>
+    <td><%= image_tag zebra["photo_url"], "width" => "100" %></td>
+
+  </tr>
+<% end %>
+</tbody>
+</table>
+</style>
+</table>

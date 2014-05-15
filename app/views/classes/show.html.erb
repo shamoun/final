@@ -1,6 +1,6 @@
 <font face="verdana"><font color= purple>
 <% the_id = params["id"] %>
-<% the_class = Classes.read(the_id) %>
+<% the_class = Class.read(the_id) %>
 <% reviews = Rating.where("class_id" => the_class["id"]) %>
 <% avgrating = Rating.where("class_id" => the_class["id"]).average("rating") %>
 
@@ -29,8 +29,9 @@ border-collapse:collapse
   <tbody>
 <% all_reviews.each do |feedback| %>
   <tr>
-
-    <td> <%= feedback["rating"] %> </td>
+    <% name = feedback["class_name"] %>
+    <% avgrating = Review.where("class_name" => name).average("rating") %>
+    <td> <%= avgrating %> </td>
     <td> <%= feedback["feedback"] %> </td>
   </tr>
 <% end %>
