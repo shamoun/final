@@ -33,8 +33,8 @@ border-collapse:collapse
   <tbody>
 <% all_reviews.each do |feedback| %>
   <tr>
-    <% name = feedback["class_name"] %>
-    <% avgrating = Review.where("class_id" => name["id"]).average("rating") %>
+    <% name = feedback["course_name"] %>
+    <% avgrating = Rating.where("course_id" => name["id"]).average("rating") %>
     <td> <%= name %> </td>
     <td> <%= avgrating %> </td>
   </tr>

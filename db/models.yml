@@ -13,6 +13,7 @@ Rating:
   - course_id: integer
   - professor_id: integer
   - quarter: string
+  - year: integer
   - rating: integer
   - feedback: text
 

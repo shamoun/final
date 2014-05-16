@@ -4,7 +4,7 @@
 <% reviews = Rating.where("course_id" => the_course["id"]) %>
 <% avgrating = Rating.where("course_id" => the_course["id"]).average("rating") %>
 
-<h1><%= the_course["course_name"] %></h1>
+<h2><%= the_course["course_name"] %></h2>
 </font>
 
 
@@ -37,7 +37,7 @@ border-collapse:collapse
     <% name = feedback["course_name"] %>
     <% avgrating = Review.where("course_name" => name).average("rating") %>
     <td> <%= avgrating %> </td>
-    <td> <%= feedback["feedback"] %> </td>
+    <td> <li><%= feedback["feedback"] %> </li></td>
   </tr>
 <% end %>
 </tbody>

@@ -14,7 +14,7 @@ border-collapse:collapse
 </style>
 <table style="width:600px">
 
-<% all_classes = Course.group("dept").order("course_no desc") %>
+<% all_classes = Course.order("dept asc, course_no asc") %>
   <thead>
   <tr>
     <th> Department </th>
@@ -30,7 +30,7 @@ border-collapse:collapse
   <tr>
     <% name = zebra["course_name"] %>
     <% id = name["id"] %>
-    <% avgrating = Rating.where("course_id" => id).average("rating") %>
+    <% avgrating = Rating.where("course_id" => zebra["id"]).average("rating") %>
     <td><%= zebra["dept"] %></td>
     <td><%= zebra["course_no"] %></td>
     <td><%= link_to name, "/classes/#{zebra["id"]}" %></td>
