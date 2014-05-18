@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Final</title>
+  <title>Rate your professors!</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +9,14 @@
 <body>
 
 <div>
+
+  <font face="verdana"><h1>Rate Your Professors!</h1>
+      <p>
+        <%= link_to "Submit Rating", "/new" %>
+        | <%= link_to "Classes", "/classes" %> |
+        <%= link_to "Professors", "/professors" %>
+      </p>
+      <hr>
   <%= yield %>
 </div>
 </body>

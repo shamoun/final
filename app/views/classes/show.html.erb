@@ -1,16 +1,11 @@
 <font face="verdana"><font color= purple>
 <% the_id = params["id"] %>
 <% the_course = Course.read(the_id) %>
-<% reviews = Rating.where("course_id" => the_course["id"]) %>
-<% avgrating = Rating.where("course_id" => the_course["id"]).average("rating") %>
+<% reviews = Rating.where("course" => the_course["course_name"]) %>
+<% avgrating = Rating.where("course" => the_course["course_name"]).average("rating") %>
 
 <h2><%= the_course["course_name"] %></h2>
 </font>
-
-
-<p>
-  <%= link_to "Classes", "/classes" %> | <%= link_to "Professors", "/professors" %>
-</p>
 
 <font color = black>
 <table>
@@ -23,10 +18,11 @@ border-collapse:collapse
 </style>
 <table style="width:600px">
 
-<% all_reviews = Rating.where("course_id" => the_course["id"]) %>
+<% all_reviews = Rating.where("course" => the_course["course_name"]) %>
 
   <thead>
   <tr>
+    <th> Professor </th>
     <th> How likely would you be to recommend this class (1-10) </th>
     <th> Qualitative feedback </th>
   </tr>
@@ -35,9 +31,10 @@ border-collapse:collapse
 <% all_reviews.each do |feedback| %>
   <tr>
     <% name = feedback["course_name"] %>
-    <% avgrating = Review.where("course_name" => name).average("rating") %>
-    <td> <%= avgrating %> </td>
-    <td> <li><%= feedback["feedback"] %> </li></td>
+    <% avgrating = Rating.where("course" => name).average("rating") %>
+    <td width=200> <%= feedback["professor_fn"] %> <%= feedback["professor_ln"] %> </td>
+    <td width=200> <%= avgrating %> </td>
+    <td width=200> <li><%= feedback["feedback"] %> </li></td>
   </tr>
 <% end %>
 </tbody>
@@ -46,5 +43,4 @@ border-collapse:collapse
 
 <br>
 
-<%= link_to "Go back to class list", "/classes" %> </td>
 </font>

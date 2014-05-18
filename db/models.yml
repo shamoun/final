@@ -10,10 +10,9 @@ Course:
   - course_name: string
 
 Rating:
-  - course_id: integer
-  - professor_id: integer
-  - quarter: string
-  - year: integer
+  - course: string
+  - professor_ln: string
+  - professor_fn: string
   - rating: integer
   - feedback: text
 

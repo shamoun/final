@@ -1,9 +1,5 @@
 <h2> <font face="verdana" color=purple>Class overview</font> </h2>
 
-<p>
-  <%= link_to "Classes", "/classes" %> | <%= link_to "Professors", "/professors" %>
-</p>
-
 <table>
 <style>
 table,th,td
@@ -29,8 +25,7 @@ border-collapse:collapse
 
   <tr>
     <% name = zebra["course_name"] %>
-    <% id = name["id"] %>
-    <% avgrating = Rating.where("course_id" => zebra["id"]).average("rating") %>
+    <% avgrating = Rating.where("course" => name).average("rating") %>
     <td><%= zebra["dept"] %></td>
     <td><%= zebra["course_no"] %></td>
     <td><%= link_to name, "/classes/#{zebra["id"]}" %></td>
