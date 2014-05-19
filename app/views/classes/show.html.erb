@@ -1,8 +1,6 @@
 <font face="verdana"><font color= purple>
 <% the_id = params["id"] %>
 <% the_course = Course.read(the_id) %>
-<% reviews = Rating.where("course" => the_course["course_name"]) %>
-<% avgrating = Rating.where("course" => the_course["course_name"]).average("rating") %>
 
 <h2><%= the_course["course_name"] %></h2>
 </font>
@@ -23,7 +21,7 @@ border-collapse:collapse
   <thead>
   <tr>
     <th> Professor </th>
-    <th> How likely would you be to recommend this class (1-10) </th>
+    <th> How likely would you be to recommend this class (1-10)? </th>
     <th> Qualitative feedback </th>
   </tr>
   </thead>

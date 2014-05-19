@@ -36,7 +36,7 @@ Professor.create("pfirst_name" => "Edward F.X.", "plast_name" => "Hughes", "gend
 Rating.delete_all
 Rating.create("course" => "Biomedical Marketing", "professor_ln" => "Calkins", "professor_fn" => "Tim","rating" => "4", "feedback" => "1")
 Rating.create("course" => "Biomedical Marketing", "professor_ln" => "Calkins", "professor_ln" => "Tim","rating" => "6", "feedback" => "2")
-Rating.create("course" => "Business Strategy", "professor_ln" => "Calkins", "professor_fn" => "Tim","rating" => "9", "feedback" => "3")
+Rating.create("course" => "Business Strategy", "professor_ln" => "Calkins", "professor_fn" => "Tim","rating" => "99", "feedback" => "3")
 
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

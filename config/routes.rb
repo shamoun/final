@@ -10,6 +10,4 @@ Final::Application.routes.draw do
 
   get '/professors/:id' => 'professors/show'
 
-
-
 end
