@@ -16,7 +16,7 @@ border-collapse:collapse
 </style>
 <table style="width:600px">
 
-<% all_reviews = Rating.where("course" => the_course["course_name"]) %>
+<% all_reviews = Rating.where("course_id" => the_course["id"]) %>
 
   <thead>
   <tr>
@@ -29,8 +29,8 @@ border-collapse:collapse
 <% all_reviews.each do |feedback| %>
   <tr>
     <% name = feedback["course_name"] %>
-    <% avgrating = Rating.where("course" => name).average("rating") %>
-    <td width=200> <%= feedback["professor_fn"] %> <%= feedback["professor_ln"] %> </td>
+    <% avgrating = Rating.where("course_id" => name["id"]).average("rating") %>
+    <td width=200> <%= feedback["professor_id"] %></td>
     <td width=200> <%= avgrating %> </td>
     <td width=200> <li><%= feedback["feedback"] %> </li></td>
   </tr>

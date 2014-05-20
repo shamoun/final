@@ -34,9 +34,9 @@ Professor.create("pfirst_name" => "Craig", "plast_name" => "Garthwaite", "gender
 Professor.create("pfirst_name" => "Edward F.X.", "plast_name" => "Hughes", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Hughes_Edward13_RGB.ashx")
 
 Rating.delete_all
-Rating.create("course" => "Biomedical Marketing", "professor_ln" => "Calkins", "professor_fn" => "Tim","rating" => "4", "feedback" => "1")
-Rating.create("course" => "Biomedical Marketing", "professor_ln" => "Calkins", "professor_ln" => "Tim","rating" => "6", "feedback" => "2")
-Rating.create("course" => "Business Strategy", "professor_ln" => "Calkins", "professor_fn" => "Tim","rating" => "99", "feedback" => "3")
+Rating.create("course_id" => "154", "professor_id" => "193", "rating" => "4", "feedback" => "Great!")
+Rating.create("course_id" => "159", "professor_id" => "193", "rating" => "6", "feedback" => "Perfect!")
+Rating.create("course_id" => "154", "professor_id" => "185", "rating" => "99", "feedback" => "Awesome!")
 
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

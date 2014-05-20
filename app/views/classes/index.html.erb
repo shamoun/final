@@ -25,7 +25,7 @@ border-collapse:collapse
 
   <tr>
     <% name = zebra["course_name"] %>
-    <% avgrating = Rating.where("course" => name).average("rating") %>
+    <% avgrating = Rating.where("course_id" => zebra["id"]).average("rating") %>
     <td><%= zebra["dept"] %></td>
     <td><%= zebra["course_no"] %></td>
     <td><%= link_to name, "/classes/#{zebra["id"]}" %></td>

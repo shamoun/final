@@ -10,13 +10,13 @@ Course:
   - course_name: string
 
 Rating:
-  - course: string
-  - professor_ln: string
-  - professor_fn: string
+  - course_id: integer
+  - professor_id: integer
   - rating: integer
   - feedback: text
 
-Student:
-  - first_name: string
-  - last_name: string
-  - graduation_year: integer
+User:
+  - username: string
+  - password: string
+  - firstname: string
+  - lastname: string
