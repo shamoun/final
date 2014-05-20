@@ -29,8 +29,11 @@ border-collapse:collapse
 <% all_reviews.each do |feedback| %>
   <tr>
     <% name = feedback["course_name"] %>
-    <% avgrating = Rating.where("course_id" => name["id"]).average("rating") %>
-    <td width=200> <%= feedback["professor_id"] %></td>
+    <% professor = Professor.find_by("id" => feedback["professor_id"]) %>
+    <% proffname = professor["pfirstname"] %>
+    <% proflname = professor["plastname"] %>
+    <% avgrating = Rating.where(professor_id => professor["id"]) %>
+    <td width=200> <%= proffname %> <%= proflname %></td>
     <td width=200> <%= avgrating %> </td>
     <td width=200> <li><%= feedback["feedback"] %> </li></td>
   </tr>
