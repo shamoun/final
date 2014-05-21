@@ -20,7 +20,7 @@ border-collapse:collapse
 
   <thead>
   <tr>
-    <th> Professor </th>
+    <th> Professor name </th>
     <th> How likely would you be to recommend this class (1-10)? </th>
     <th> Qualitative feedback </th>
   </tr>
@@ -30,12 +30,12 @@ border-collapse:collapse
   <tr>
     <% name = feedback["course_name"] %>
     <% professor = Professor.find_by("id" => feedback["professor_id"]) %>
-    <% proffname = professor["pfirstname"] %>
-    <% proflname = professor["plastname"] %>
-    <% avgrating = Rating.where(professor_id => professor["id"]) %>
-    <td width=200> <%= proffname %> <%= proflname %></td>
+    <% avgrating = Rating.where("professor_id" => professor["id"]).average("rating") %>
+    <td width=200> <%= professor["pfirstname"] %> <%= professor["plastname"] %></td>
     <td width=200> <%= avgrating %> </td>
     <td width=200> <li><%= feedback["feedback"] %> </li></td>
+
+
   </tr>
 <% end %>
 </tbody>
