@@ -3,9 +3,13 @@
 <% the_course = Course.read(the_id) %>
 
 <h2><%= the_course["course_name"] %></h2>
-</font>
+
 
 <font color = black>
+<p>Average course rating: __________ [still need to add in]</p>
+<br>
+
+</font>
 <table>
 <style>
 table,th,td
@@ -31,7 +35,7 @@ border-collapse:collapse
     <% name = feedback["course_name"] %>
     <% professor = Professor.find_by("id" => feedback["professor_id"]) %>
     <% avgrating = Rating.where("professor_id" => professor["id"]).average("rating") %>
-    <td width=200> <%= professor["pfirstname"] %> <%= professor["plastname"] %></td>
+    <td width=200> <%= feedback["professor_id"] %></td>
     <td width=200> <%= avgrating %> </td>
     <td width=200> <li><%= feedback["feedback"] %> </li></td>
 

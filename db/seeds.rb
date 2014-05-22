@@ -37,6 +37,7 @@ Rating.delete_all
 Rating.create("course_id" => mgmt441.id, "professor_id" => brianuzzi.id, "rating" => "4", "feedback" => "Great!")
 Rating.create("course_id" => hema914.id, "professor_id" => brianuzzi.id, "rating" => "6", "feedback" => "Perfect!")
 Rating.create("course_id" => hema914.id, "professor_id" => timcalkins.id, "rating" => "99", "feedback" => "Awesome!")
+Rating.create("course_id" => hema914.id, "professor_id" => timcalkins.id, "rating" => "45", "feedback" => "Awesome!")
 
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #

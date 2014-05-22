@@ -1,35 +1,26 @@
-<h2> <font face="verdana" color=purple>Professor overview</font> </h2>
+<div class="row">
+  <div class="col-md-2 col-md-offset-10">
+    <%= link_to "Add a New Professor", "/professors/new", "class" => 'btn btn-lg btn-primary' %>
+  </div>
+</div>
 
-<table>
-<style>
-table,th,td
-{
-border:1px solid #C0C0C0;
-border-collapse:collapse
-}
-</style>
-<table style="width:600px">
+<div class="row">
 
-<% all_professors = Professor.order("plast_name asc") %>
-  <thead>
-  <tr>
-    <th> Last name </th>
-    <th> First name </th>
-    <th> Photo </th>
-  </tr>
-  </thead>
-  <tbody>
+  <div class="col-md-8">
 
-<% all_professors.each do |zebra| %>
+    <% Professor.read.order("plast_name asc").each do |professor| %>
 
-  <tr>
-    <td><%= link_to zebra["plast_name"],"/professors/#{zebra["id"]}"%></td>
-    <td><%= zebra["pfirst_name"] %></td>
-    <td><%= image_tag zebra["photo_url"], "width" => "100" %></td>
+      <div class="row professor">
 
-  </tr>
+        <div class="col-md-4">
+          <%= link_to image_tag(professor["photo_url"], "height" => 250, "width" => 200), "/professors/#{professor["id"]}" %>
+        </div>
+
+        <div class="col-md-8">
+          <h3> <%= professor["pfirst_name"] %> <%= link_to professor["plast_name"], "/professors/#{professor["id"]}" %> </h3>
+
+
+    </div>
+</div>
+
 <% end %>
-</tbody>
-</table>
-</style>
-</table>

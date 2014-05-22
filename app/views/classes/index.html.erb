@@ -1,7 +1,9 @@
 <h2> <font face="verdana" color=purple>Class overview</font> </h2>
-
-<%= link_to "Add a New Class", "/classes/new" %>
-
+<div class="row">
+  <div class="col-md-2 col-md-offset-10">
+    <%= link_to "Add a New Class", "/classes/new", "class" => 'btn btn-lg btn-primary' %>
+  </div>
+</div>
 <table>
 <style>
 table,th,td
@@ -19,8 +21,6 @@ border-collapse:collapse
     <th> Class Number </th>
     <th> Class name </th>
     <th> Average Rating </th>
-    <th> Edit? </th>
-    <th> Delete? </th>
   </tr>
   </thead>
   <tbody>
@@ -34,8 +34,6 @@ border-collapse:collapse
     <td><%= zebra["course_no"] %></td>
     <td><%= link_to name, "/classes/#{zebra["id"]}" %></td>
     <td><%= avgrating %></td>
-    <td><%= link_to "Edit", "/classes/#{zebra["id"]}/edit" %></td>
-    <td><%= link_to "Delete", "/classes/#{zebra["id"]}", "method" => "delete" %></td>
 
   </tr>
 <% end %>

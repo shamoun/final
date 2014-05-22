@@ -1,8 +1,8 @@
 Final::Application.routes.draw do
 
-  get '/professors' => 'professors/index'
+  get "/professors" => "professors/index"
 
-  get '/professors/:id' => 'professors/show'
+  get "/professors/:id" => "professors/show"
 
 
    # Resource: Classes

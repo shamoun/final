@@ -1,45 +1,37 @@
-<font face="verdana"><font color= purple>
-<% the_id = params["id"] %>
-<% the_professor = Professor.read(the_id) %>
-<% reviews = Rating.where("professor_id" => the_professor["id"]) %>
-<% avgrating = Rating.where("professor_id" => the_professor["id"]).average("rating") %>
+<% professor_id = params["id"] %>
+<% professor = Professor.read(professor_id) %>
 
-<h1><%= the_professor["pfirst_name"]%> <%= the_professor["plast_name"]%></h1>
-</font>
+<div class="row">
 
-<font color = black>
-<table>
-<style>
-table,th,td
-{
-border:1px solid #C0C0C0;
-border-collapse:collapse
-}
-</style>
-<table style="width:600px">
+  <div class="col-md-3">
+    <%= image_tag(professor["photo_url"]) %>
+  </div>
 
-<% all_reviews = Rating.where("professor_id" => the_professor["id"]) %>
+<div class="col-md-9">
+    <h1><%= professor["pfirst_name"] %> <%= professor["plast_name"] %>
+      <p><small>Gender: <%= professor["gender"] %></small></p>
+    </h1>
+    </div>
 
-  <thead>
-  <tr>
-    <th> Class taught </th>
-    <th> How likely would you be to recommend this class (1-10)? </th>
-  </tr>
-  </thead>
-  <tbody>
-<% all_reviews.each do |feedback| %>
-  <tr>
-    <% name = feedback["course_name"] %>
-    <% avgrating = Rating.where("course_id" => name["id"]).average("rating") %>
-    <td> <%= name %> </td>
-    <td> <%= avgrating %> </td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-</style>
+<div class="row">
+  <div class="col-md-12">
+    <h3>Courses Taught:</h3>
 
-<br>
+<% links = Link.where("professor_id" => professor["id"]) %>
 
-</font>
+    <ul>
+      <% links.each do |link| %>
+        <% classes = Course.find_by("id" => link["class_id"]) %>
+        <li>
+          <%= link_to classes["class_name"], "/classes/#{classes["id"]}" %>
 
+        </li>
+      <% end %>
+    </ul>
+
+    <h3>Reviews:</h3>
+    <div class="row">
+    <div class="col-md-2">
+    <%= link_to "Add a New Review", "/rating/new", "class" => 'btn btn-lg btn-primary' %>
+    </div>
+    </div>
