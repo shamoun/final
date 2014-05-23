@@ -1,22 +1,22 @@
-class ClassesController < ApplicationController
+class RatingController < ApplicationController
 
 
   def destroy
-    course = Course.find_by("id" => params["id"])
-    course.delete
+    rating = Rating.find_by("id" => params["id"])
+    rating.delete
     redirect_to "/classes"
   end
 
   # Receive form submitted from /classes/new
   def create
-    Course.create("dept" => params["dept_name"], "course_no" => params["coursenum"], "course_name" => params["course_name"])
+    Rating.create("dept" => params["dept_name"], "course_no" => params["coursenum"], "course_name" => params["course_name"])
     redirect_to "/classes"
   end
 
   # Receive form submitted from /classes/edit
   def update
-    course = Course.find_by("id" => params["id"])
-    course.update("dept" => params["dept"], "course_no" => params["course_no"], "course_name" => params["course_name"])
+    rating = Rating.find_by("id" => params["id"])
+    rating.update("dept" => params["dept"], "course_no" => params["course_no"], "course_name" => params["course_name"])
     redirect_to "/classes"
   end
 

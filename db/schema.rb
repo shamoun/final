@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140520184301) do
+ActiveRecord::Schema.define(version: 20140523174818) do
 
   create_table "courses", force: true do |t|
     t.string  "dept"
@@ -28,9 +28,13 @@ ActiveRecord::Schema.define(version: 20140520184301) do
 
   create_table "ratings", force: true do |t|
     t.integer "rating"
-    t.text    "feedback",     limit: 255
-    t.integer "course_id"
-    t.integer "professor_id"
+    t.text    "feedback",   limit: 255
+    t.integer "section_id"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string "course_id"
+    t.string "professor_id"
   end
 
   create_table "users", force: true do |t|
