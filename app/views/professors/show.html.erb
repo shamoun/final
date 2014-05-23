@@ -17,13 +17,13 @@
   <div class="col-md-12">
     <h3>Courses Taught:</h3>
 
-<% links = Link.where("professor_id" => professor["id"]) %>
+<% rating = Rating.where("professor_id" => professor["id"]) %>
 
     <ul>
-      <% links.each do |link| %>
-        <% classes = Course.find_by("id" => link["class_id"]) %>
+      <% rating.each do |feedback| %>
+        <% classes = Course.find_by("id" => feedback["course_id"]) %>
         <li>
-          <%= link_to classes["class_name"], "/classes/#{classes["id"]}" %>
+          <%= link_to classes["course_name"], "/classes/#{classes["id"]}" %>
 
         </li>
       <% end %>
