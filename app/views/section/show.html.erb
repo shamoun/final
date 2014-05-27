@@ -1,0 +1,53 @@
+<% section_no = params["id"] %>
+<% section = Section.read(section_no) %>
+
+<% avg = Rating.where("section_id" => params["id"]).average(:rating).to_i %>
+    <h4>Average Rating:
+      <% avg.times do %>
+        &star;
+      <% end %>
+    </h4>
+
+<p>
+<p>
+<%= link_to "Add your own review!", "/rating/new" %>
+</p>
+</p>
+
+<h2> <font face="verdana" color=purple>Reviews</font> </h2>
+
+</div>
+
+<table>
+<style>
+table,th,td
+{
+border:1px solid #C0C0C0;
+border-collapse:collapse
+}
+</style>
+<table style="width:600px">
+
+<% reviews = Rating.where("section_id" => params["id"]) %>
+  <thead>
+  <tr>
+    <th> Date </th>
+    <th> On a scale of 1-10 (10 being the most likely), how likely would you be to recommend this course to a friend? </th>
+    <th> Feedback </th>
+  </tr>
+  </thead>
+  <tbody>
+
+<% reviews.each do |lion| %>
+
+  <tr>
+    <td><%= "TBD" %></td>
+    <td><%= lion["rating"] %></td>
+    <td><%= lion["feedback"] %></td>
+
+  </tr>
+<% end %>
+</tbody>
+</table>
+</style>
+</table>

@@ -15,8 +15,8 @@ Rating:
   - feedback: text
 
 Section:
-  - course_id: string
-  - professor_id: string
+  - course_id: integer
+  - professor_id: integer
 
 
 User:

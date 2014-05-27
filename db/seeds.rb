@@ -32,21 +32,15 @@ daviddranov = Professor.create("pfirst_name" => "David", "plast_name" => "Dranov
 brianuzzi = Professor.create("pfirst_name" => "Brian", "plast_name" => "Uzzi", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/uzzi_brian_2012.ashx")
 craiggarthwaite = Professor.create("pfirst_name" => "Craig", "plast_name" => "Garthwaite", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Garthwaite_Craig_2011.ashx")
 edwardfxhughes = Professor.create("pfirst_name" => "Edward F.X.", "plast_name" => "Hughes", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Hughes_Edward13_RGB.ashx")
+jamesconley = Professor.create("pfirst_name" => "James", "plast_name" => "Conley", "gender" => "M", "photo_url" => "http://www.kellogg.northwestern.edu/~/media/Images/faculty/headshot/Conley_James_2011.ashx")
 
 Rating.delete_all
-Rating.create("section_id" => mgmt441uzzi, "rating" => "4", "feedback" => "Great!")
-Rating.create("section_id" => hema914uzzi, "rating" => "6", "feedback" => "Perfect!")
-Rating.create("section_id" => hema914calkins, "rating" => "99", "feedback" => "Awesome!")
-Rating.create("section_id" => hema914calkins, "rating" => "45", "feedback" => "the best!")
+Rating.create("section_id" => mgmt441conley.id, "rating" => "4", "feedback" => "Great!")
+Rating.create("section_id" => hema914uzzi.id, "rating" => "6", "feedback" => "Perfect!")
+Rating.create("section_id" => hema914calkins.id, "rating" => "8", "feedback" => "the best!")
+Rating.create("section_id" => hema914calkins.id, "rating" => "3", "feedback" => "Awesome!")
 
 Section.delete_all
-mgmt441uzzi = Section.create("course_id" => mgmt441.id, "professor_id" => brianuzzi.id)
+mgmt441conley = Section.create("course_id" => mgmt441.id, "professor_id" => jamesconley.id)
 hema914uzzi Section.create("course_id" => hema914.id, "professor_id" => brianuzzi.id)
 hema914calkins = Section.create("course_id" => hema914.id, "professor_id" => timcalkins.id)
-
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
