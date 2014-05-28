@@ -26,11 +26,15 @@
             <%= link_to "Search by professor", "/professors" %>
           </div>
           <div class="pull-right">
-            <%= link_to "Sign Up", '#' %> |
-            <%= link_to "Sign In", '#' %> |
-            <%= link_to "My Profile", '#' %> |
-            <%= link_to "Sign Out", '#' %>
-          </div>
+            <% user = User.find_by("id" => cookies["user_id"]) %>
+            <% if user.present? %>
+              <%= user["name"] %>
+              <%= link_to "My Profile", "/users/#{user["id"]}" %> |
+              <%= link_to "Sign Out", '/logout' %>
+            <% else %>
+              <%= link_to "Sign Up", '/users/new' %> |
+              <%= link_to "Sign In", '/login' %>
+            <% end %>
         </div>
         <hr>
 
