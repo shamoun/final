@@ -345,13 +345,14 @@ jamesconley = Professor.create("pfirst_name" => "James", "plast_name" => "Conley
 
 
 Section.delete_all
-hema914brown = Section.create("course_id" => hema914.id, "professor_id" => jenbrown.id)
+finc430chopra = Section.create("course_id" => finc430.id, "professor_id" => navinchopra.id)
+finc430braun = Section.create("course_id" => finc430.id, "professor_id" => phillipbraun.id)
 mgmt431gathwaite = Section.create("course_id" => mgmt431.id, "professor_id" => craiggarthwaite.id)
 hema914calkins = Section.create("course_id" => hema914.id, "professor_id" => timcalkins.id)
 
 
 Rating.delete_all
-Rating.create("section_id" => hema914brown.id, "rating" => "4", "feedback" => "Great!")
+Rating.create("section_id" => finc430chopra.id, "rating" => "4", "feedback" => "Great!")
 Rating.create("section_id" => mgmt431gathwaite.id, "rating" => "6", "feedback" => "Perfect!")
 Rating.create("section_id" => hema914calkins.id, "rating" => "8", "feedback" => "the best!")
 Rating.create("section_id" => hema914calkins.id, "rating" => "3", "feedback" => "Awesome!")
