@@ -13,6 +13,11 @@ border-collapse:collapse
 <table style="width:600px">
 
 <% all_classes = Course.order("dept asc, course_no asc") %>
+<% if params["dept"].present? %>
+<%   all_classes = Course.where("dept" => params["dept"]).order("course_no asc") %>
+<% end %>
+
+
   <thead>
   <tr>
     <th> Department </th>
