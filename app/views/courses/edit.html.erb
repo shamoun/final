@@ -1,9 +1,9 @@
 <% course = Course.find_by("id" => params["id"]) %>
 
-<h1>Edit Course #<%= course["id"] %></h1>
+<h2>Edit Course: <%= course["course_name"] %></h2>
 
-<!-- This won't work!  It will send a GET request instead. -->
-<form action="/classes/<%= course["id"] %>" method="patch">
+
+<%= form_tag "/courses", "method" => "patch"  %>
 
   <p>
     <label>What department is the class in?</label>
@@ -21,6 +21,6 @@
   </p>
 
 
-  <input type="submit"> or <a href="/classes">Cancel</a>
+  <input type="submit"> or <a href="/courses">Cancel</a>
 
 </form>

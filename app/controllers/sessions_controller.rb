@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def login
-
-    redirect_to "/", :notice => "Welcome!"
-  end
 
   def logout
     cookies["user_id"] = nil

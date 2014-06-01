@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     if existing_user == nil
       User.create("username" => params["username"],
                   "password" => params["password"],
-                  "fist name" => params["firstname"],
-                  "last name" => params["lastname"])
+                  "firstname" => params["firstname"],
+                  "lastname" => params["lastname"])
 
       redirect_to "/"
     else

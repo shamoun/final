@@ -5,6 +5,11 @@
 <%#= link_to tiger "/courses?=#{tiger["dept"]}"  %>
 
 <%# end %>
+<div class="row">
+  <div class="col-md-2 col-md-offset-10">
+    <%= link_to "Add a New Class", "/courses/new", "class" => 'btn btn-lg btn-primary' %>
+  </div>
+</div>
 
 <table>
 <style>
@@ -27,6 +32,8 @@ border-collapse:collapse
     <th> Department </th>
     <th> Class Number </th>
     <th> Class name </th>
+    <th> Edit class</th>
+    <th> Delete Class </th>
   </tr>
   </thead>
   <tbody>
@@ -38,6 +45,9 @@ border-collapse:collapse
     <td><%= zebra["dept"] %></td>
     <td><%= zebra["course_no"] %></td>
     <td><%= link_to name, "/courses/#{zebra["id"]}" %></td>
+    <td><%= link_to "Edit", "/courses/#{zebra["id"]}/edit" %></td>
+    <td><%= link_to "Delete", "/courses/#{zebra["id"]}", "method" => "delete" %></td>
+
 
   </tr>
 <% end %>
