@@ -9,21 +9,18 @@
 
       <div class="form-group">
         <%= label_tag "dept", "What department is the class in?" %>
-        <%= label_tag "chosen_dept", "Choose a Department:" %>
-        <%= select_tag "chosen_dept",
-                       options_from_collection_for_select(Course.read.order("dept"),
-                        "id",
-                        "dept"), "class" => "form-control" %>
+        <%= text_field_tag "dept", "", "class" => "form-control" %>
+
       </div>
 
       <div class="form-group">
-        <%= label_tag "coures_no", "Class Number" %>
+        <%= label_tag "course_no", "Class Number" %>
         <%= text_field_tag "course_no", "", "class" => "form-control" %>
       </div>
 
       <div class="form-group">
         <%= label_tag "course_name", "Class Name" %>
-        <%= text_field_tag "couese_name", "", "class" => "form-control" %>
+        <%= text_field_tag "course_name", "", "class" => "form-control" %>
       </div>
 
 

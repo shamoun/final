@@ -7,7 +7,7 @@ Professor:
 Course:
   - dept: string
   - course_no: integer
-  - course_name: string
+  - course_name: text
 
 Rating:
   - section_id: integer
