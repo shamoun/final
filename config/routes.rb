@@ -2,8 +2,22 @@ Final::Application.routes.draw do
 
   get "/" => "courses/index"
 
-  get "/professors" => "professors/index"
-  get "/professors/:id" => "professors/courses"
+
+    # --- Create
+  get "/professors/new" => 'professors#new'
+  post "/professors" => 'professors#create'
+
+  # --- Read
+  get "/professors" => 'professors#index'
+  get "/professors/:id" => 'professors#courses'
+
+  # -- Update
+  get "/professors/:id/edit" => 'professors#edit'
+  patch "/professors/:id" => 'professors#update'
+
+  # --- Delete
+  delete "/professors/:id" => 'professors#destroy'
+
 
 
 
@@ -28,6 +42,7 @@ Final::Application.routes.draw do
 
 
 
+
     # --- Create
   get "/ratings/new" => 'ratings#new'
   post "/ratings" => 'ratings#create'
@@ -42,6 +57,7 @@ Final::Application.routes.draw do
 
   # --- Delete
   delete "/ratings/:id" => 'ratings#destroy'
+
 
 
 
