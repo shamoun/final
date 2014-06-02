@@ -2,8 +2,7 @@
 <% course = Course.read(course_id) %>
 <% section = Section.where("course_id" => course["id"]) %>
 
-<h2> <font face="verdana" color=purple><%= course["course_name"] %></font></h2>
-
+<h2> <font face="verdana" color=purple><%= course["dept"] %> <%= course["course_no"] %>: <%= course["course_name"] %></font></h2>
 
 <h3>Choose a professor: </h3>
 
@@ -21,4 +20,3 @@
 
       <% end %>
     </ul>
-

@@ -1,26 +1,26 @@
 <% course = Course.find_by("id" => params["id"]) %>
 
-<h2>Edit Course: <%= course["course_name"] %></h2>
+<h2>Edit Course:
+<p><small><%= course["course_name"] %></small></p></h2>
 
 
-<%= form_tag "/courses", "method" => "patch"  %>
+<%= form_tag "/courses/#{course["id"]}", "method" => "patch" %>
 
   <p>
-    <label>What department is the class in?</label>
-    <input type="text" name="dept" value="<%= course["dept"] %>">
+    <%= label_tag "dept", "What is the department?" %>
+    <%= text_field_tag "dept", course["dept"] %>
+  </p>
+
+   <p>
+    <%= label_tag "course_no", "What is the course number?" %>
+    <%= text_field_tag "course_no", course["course_no"] %>
   </p>
 
   <p>
-    <label>What is the class number?</label>
-    <input type="integer" name="class_no" value="<%= course["course_no"] %>">
+    <%= label_tag "course_name", "What is the course name?" %>
+    <%= text_field_tag "course_name", course["course_name"] %>
   </p>
 
-  <p>
-    <label>What is the title of the class?</label>
-    <input type="text" name="class_name" value="<%= course["course_name"] %>">
-  </p>
-
-
-  <input type="submit"> or <a href="/courses">Cancel</a>
+  <%= submit_tag %> or <%= link_to "Cancel", "/courses" %>
 
 </form>
