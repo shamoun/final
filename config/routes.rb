@@ -1,6 +1,6 @@
 Final::Application.routes.draw do
 
-  get "/" => "courses/index"
+  get "/" => "courses#index"
 
 
     # --- Create
@@ -38,7 +38,7 @@ Final::Application.routes.draw do
 
 
 
-  get "/sections/:id" => "sections/show"
+  get "/sections/:id" => "sections#show"
 
 
 
