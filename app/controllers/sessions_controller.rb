@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def logout
     cookies["user_id"] = nil
-    redirect_to "/", :notice => "See ya!"
+    redirect_to "/", :notice => "Thanks for using Rate My Professor!"
   end
 
   def authenticate
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
         cookies["user_id"] = the_user["id"]
         redirect_to "/", :notice => "Welcome!"
       else
+        logger.debug "Not There"
         redirect_to "/login", :notice => "Unknown password."
       end
     else
@@ -21,3 +22,5 @@ class SessionsController < ApplicationController
   end
 
 end
+
+
