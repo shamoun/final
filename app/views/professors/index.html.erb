@@ -1,5 +1,9 @@
-<div class="row">
-
+<div class="form-group">
+<div class="col-md-6" >
+    <%= text_area_tag :content, "", "class" => "form-control", "placeholder" => "Search by last name", "rows" => 2 %>
+    <%= submit_tag "Search", "class" => "btn btn-sm btn-primary" %>
+    <% search = :content %>
+</div>
 </div>
 
 <div class="row">
@@ -12,7 +16,7 @@
 
   <div class="col-md-8">
 
-    <% Professor.read.order("plast_name asc").each do |professor| %>
+    <% Professor.where("plast_name LIKE '%[search]%'").order("plast_name asc").each do |professor| %>
 
       <div class="row professor">
 

@@ -2,7 +2,7 @@
 
 <% department = Course.pluck("dept").uniq %>
 <% department.each do |tiger| %>
-<%= link_to tiger, "/courses?#{tiger["dept"]}"  %> |
+<%= link_to tiger, "/courses?id=#{tiger["dept"]}"  %> |
 
 <% end %>
 
