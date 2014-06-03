@@ -1,15 +1,18 @@
 <h2> <font face="verdana" color=purple>Choose a class:</font> </h2>
 
-<%# department = Course.pluck("dept").uniq %>
-<%# department.each do |tiger| %>
-<%#= link_to tiger "/courses?=#{tiger["dept"]}"  %>
+<% department = Course.pluck("dept").uniq %>
+<% department.each do |tiger| %>
+<%= link_to tiger, "/courses?#{tiger["dept"]}"  %> |
 
-<%# end %>
+<% end %>
+
+
 <div class="row">
   <div class="col-md-2 col-md-offset-10">
     <%= link_to "Add a New Class", "/courses/new", "class" => 'btn btn-lg btn-primary' %>
   </div>
 </div>
+
 
 <table>
 <style>
@@ -21,9 +24,10 @@ border-collapse:collapse
 </style>
 <table style="width:600px">
 
-<% all_classes = Course.order("dept asc, course_no asc") %>
 <% if params["dept"].present? %>
-<%   all_classes = Course.where("dept" => params["dept"]).order("course_no asc") %>
+<% all_classes = Course.where("dept" => params["dept"]).order("course_no asc") %>
+<% else %>
+<% all_classes = Course.order("dept asc, course_no asc") %>
 <% end %>
 
 
