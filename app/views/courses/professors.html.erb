@@ -6,6 +6,9 @@
 
 <h3>Choose a professor: </h3>
 
+    <% if Section.where("course_id" => course["id"]).count == 0 %>
+      <p>No professors listed yet. Add a professor!</p>
+    <% end %>
     <ul>
 
       <% section.each do |list| %>

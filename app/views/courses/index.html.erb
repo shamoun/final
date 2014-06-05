@@ -1,4 +1,4 @@
-<h2> <font face="verdana" color=purple>Choose a class:</font> </h2>
+<h2> <font face="verdana" color=purple>Choose a course:</font> </h2>
 
 <% department = Course.pluck("dept").uniq %>
 <% department.each do |tiger| %>
@@ -6,52 +6,47 @@
 
 <% end %>
 
-
-<div class="row">
-  <div class="col-md-2 col-md-offset-10">
-    <%= link_to "Add a New Class", "/courses/new", "class" => 'btn btn-lg btn-primary' %>
-  </div>
-</div>
-
+<p></p>
 
 <table>
 <style>
 table,th,td
-{
-border:1px solid #C0C0C0;
-border-collapse:collapse
-}
-</style>
-<table style="width:600px">
 
+</style>
+<table >
+
+<% all_courses = Course.order("dept asc, course_no asc") %>
 <% if params["dept"].present? %>
-<% all_classes = Course.where("dept" => params["dept"]).order("course_no asc") %>
-<% else %>
-<% all_classes = Course.order("dept asc, course_no asc") %>
+<%   all_courses = Course.where("dept" => params["dept"]).order("course_no asc") %>
 <% end %>
 
 
   <thead>
   <tr>
-    <th> Department </th>
-    <th> Class Number </th>
-    <th> Class name </th>
-    <th> Edit class</th>
-    <th> Delete Class </th>
+    <th style="border:1px solid black;
+border-collapse:collapse; padding:15px"> Department </th>
+    <th style="border:1px solid black;
+border-collapse:collapse; padding:15px"> Class Number </th>
+    <th style="border:1px solid black;
+border-collapse:collapse; padding:15px"> Class name </th>
+    <th style="border:1px solid black;
+border-collapse:collapse; padding:15px"> Action </th>
   </tr>
   </thead>
   <tbody>
 
-<% all_classes.each do |zebra| %>
+<% all_courses.each do |course| %>
 
   <tr>
-    <% name = zebra["course_name"] %>
-    <td><%= zebra["dept"] %></td>
-    <td><%= zebra["course_no"] %></td>
-    <td><%= link_to name, "/courses/#{zebra["id"]}" %></td>
-    <td><%= link_to "Edit", "/courses/#{zebra["id"]}/edit" %></td>
-    <td><%= link_to "Delete", "/courses/#{zebra["id"]}", "method" => "delete" %></td>
-
+    <% name = course["course_name"] %>
+    <td style="border:1px solid black;
+border-collapse:collapse; padding:5px"><%= course["dept"] %></td>
+    <td style="border:1px solid black;
+border-collapse:collapse; padding:5px"><%= course["course_no"] %></td>
+    <td style="border:1px solid black;
+border-collapse:collapse; padding:5px"><%= link_to name, "/courses/#{course["id"]}" %></td>
+    <td style="border:1px solid black;
+border-collapse:collapse; padding:5px"><%= link_to "Edit", "/courses/#{course["id"]}/edit"%> | <%= link_to "Delete", "/courses/#{course["id"]}", "method" => "delete" %></td>
 
   </tr>
 <% end %>
