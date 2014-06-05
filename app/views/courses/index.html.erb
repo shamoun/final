@@ -1,10 +1,18 @@
 <h2> <font face="verdana" color=purple>Choose a course:</font> </h2>
 
+<div class="row">
+  <div class="col-md-10">
 <% department = Course.pluck("dept").uniq %>
 <% department.each do |tiger| %>
 <%= link_to tiger, "/courses?id=#{tiger["dept"]}"  %> |
 
 <% end %>
+
+    <div class="col-md-2 col-md-offset-10">
+     <%= link_to "Add a New Course", "/courses/new", "class" => 'btn btn-lg btn-primary' %>
+  </div>
+  </div>
+</div>
 
 <p></p>
 
@@ -26,9 +34,9 @@ table,th,td
     <th style="border:1px solid black;
 border-collapse:collapse; padding:15px"> Department </th>
     <th style="border:1px solid black;
-border-collapse:collapse; padding:15px"> Class Number </th>
+border-collapse:collapse; padding:15px"> Course Number </th>
     <th style="border:1px solid black;
-border-collapse:collapse; padding:15px"> Class name </th>
+border-collapse:collapse; padding:15px"> Course name </th>
     <th style="border:1px solid black;
 border-collapse:collapse; padding:15px"> Action </th>
   </tr>
@@ -40,13 +48,13 @@ border-collapse:collapse; padding:15px"> Action </th>
   <tr>
     <% name = course["course_name"] %>
     <td style="border:1px solid black;
-border-collapse:collapse; padding:5px"><%= course["dept"] %></td>
+border-collapse:collapse; padding:5px; text-align: center"><%= course["dept"] %></td>
     <td style="border:1px solid black;
-border-collapse:collapse; padding:5px"><%= course["course_no"] %></td>
+border-collapse:collapse; padding:5px; text-align: center"><%= course["course_no"] %></td>
     <td style="border:1px solid black;
 border-collapse:collapse; padding:5px"><%= link_to name, "/courses/#{course["id"]}" %></td>
     <td style="border:1px solid black;
-border-collapse:collapse; padding:5px"><%= link_to "Edit", "/courses/#{course["id"]}/edit"%> | <%= link_to "Delete", "/courses/#{course["id"]}", "method" => "delete" %></td>
+border-collapse:collapse; padding:5px; text-align: center"><%= link_to "edit", "/courses/#{course["id"]}/edit"%> | <%= link_to "delete", "/courses/#{course["id"]}", "method" => "delete" %></td>
 
   </tr>
 <% end %>

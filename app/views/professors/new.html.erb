@@ -19,13 +19,8 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag "gender", "What is the professor's gender?" %>
-        <%= text_field_tag "gender", "", "class" => "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag :gender %>
-        <%= select_tag :gender, options_for_select(['male', 'female']) %>
+        <%= label_tag "What is the professor's gender?" %>
+        <%= select_tag :gender, options_for_select(['Male', 'Female']) %>
       </div>
 
       <div class="form-group">

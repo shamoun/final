@@ -1,6 +1,6 @@
 Final::Application.routes.draw do
 
-  get "/" => "courses#index"
+  get "/" => "home#show"
 
 
     # --- Create
@@ -19,6 +19,20 @@ Final::Application.routes.draw do
   delete "/professors/:id" => 'professors#destroy'
 
 
+ # --- Create
+  get "/ratings/new" => 'ratings#new'
+  post "/ratings" => 'ratings#create'
+
+  # --- Read
+  get "/ratings" => 'ratings#index'
+  get "/ratings/:id" => 'ratings#show'
+
+  # -- Update
+  get "/ratings/:id/edit" => 'ratings#edit'
+  patch "/ratings/:id" => 'ratings#update'
+
+  # --- Delete
+  delete "/ratings/:id" => 'ratings#destroy'
 
 
     # --- Create

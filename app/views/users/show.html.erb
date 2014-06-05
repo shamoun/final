@@ -1,5 +1,12 @@
 <h1>My Profile</h1>
 
-<p>Name: <%= @user["firstname"] %> <%= @user["lastname"] %></p>
-<p>Username: <%= @user["username"] %></p>
-<p>Password: <%= @user["password"] %></p>
+<p><strong>Name:</strong> <%= @user["firstname"] %> <%= @user["lastname"] %></p>
+<p><strong>Username:</strong> <%= @user["username"] %></p>
+<p><strong>Password:</strong> <%= @user["password"] %></p>
+
+
+<div class="row">
+
+    <%= link_to "Edit my info", "/users/#{params["user_id"]}", "class" => 'btn btn-lg btn-info' %>
+  </div>
+</div>

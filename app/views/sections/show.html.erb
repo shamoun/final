@@ -1,76 +1,69 @@
 <% section_no = params["id"] %>
 <% section = Section.read(section_no) %>
 
+<% review = Rating.read(section_no) %>
 
-<% avg = Rating.where("section_id" => params["id"]).average(:rating).to_i %>
-    <h4>Average Rating:
+<% professor = Professor.find_by("id" => section["professor_id"]) %>
+<% course = Course.find_by("id" => section["course_id"]) %>
+
+<div class="row">
+
+  <div class="col-md-4">
+    <%= image_tag(professor["photo_url"], "height" => 250, "width" => 200) %>
+  </div>
+
+  <div class="col-md-8">
+    <h1><%= course["course_name"] %>
+     <p><small>Professor: <%= professor["pfirst_name"] %> <%= professor["plast_name"] %></small></p>
+    </h1>
+    <% avg = Rating.where("section_id" => params["id"]).average(:rating).to_i %>
+    <h4>Avg Rating:
       <% avg.times do %>
-        &star;
+        <span class="glyphicon glyphicon-thumbs-up"></span>
       <% end %>
     </h4>
 
-
-<h2> <font face="verdana" color=purple>Reviews</font> </h2>
-
-<div class="row">
-  <div class="col-md-6">
-<table>
-<style>
-table,th,td
-{
-border:1px solid #C0C0C0;
-border-collapse:collapse
-}
-</style>
-<table style>
-
-<% reviews = Rating.where("section_id" => params["id"]) %>
-  <thead>
-  <tr>
-    <th> Date </th>
-    <th> On a scale of 1-10 (10 being the most likely), how likely would you be to recommend this course to a friend? </th>
-    <th> Feedback </th>
-  </tr>
-  </thead>
-  <tbody>
-
-<% reviews.each do |lion| %>
-
-  <tr>
-    <td><%= "TBD" %></td>
-    <td><%= lion["rating"] %></td>
-    <td><%= lion["feedback"] %></td>
-
-  </tr>
-<% end %>
-</tbody>
-</table>
-</style>
-</table>
-
-<div class="col-md-6">
-  <h1> Class Name </h1>
-  <h3> Professor Name </h3>
-
-  <br>
-
-  <h3>Student Reviews</h3>
+  <h2>Add a Review!</h2>
 
     <% if Rating.where("section_id" => params["id"]).count == 0 %>
-      <p>No one has reviewed this section yet. <%= link_to "Be the first to add a review!", "/ratings/new" %></p>
+      <p>Be the first to add a review!</p>
     <% end %>
 
     <%= form_tag "/ratings" do %>
 
       <%= hidden_field_tag "section_id", section["id"] %>
+      <%= hidden_field_tag "date", review["date"] %>
 
+      <p></p>
       <div class="form-group">
         <%= label_tag :rating %>
-        <%= select_tag :rating, options_for_select(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']) %>
-        <%= text_area_tag :content, "", "class" => "form-control", "placeholder" => "Say something profound!", "rows" => 4 %>
+        <%= select_tag :rating, options_for_select(['5 thumbs up','4 thumbs up','3 thumbs up','2 thumbs up','1 thumbs up']) %>
+        <%= text_area_tag :feedback, "", "class" => "form-control", "placeholder" => "What did you think?", "rows" => 4 %>
       </div>
 
-      <%= submit_tag "Add Review", "class" => "btn btn-md btn-primary" %>
+      <%= submit_tag "Submit", "class" => "btn btn-lg btn-success" %>
+    <% end %></div>
+
+<p></p>
+<p></p>
+
+    <p><strong><h3>Student Ratings:</h3></strong></p>
+    <hr>
+    <% Rating.where("section_id" => params["id"]).each do |rating| %>
+      <% the_user = User.find_by("id" => rating["user_id"]) %>
+      <div class="rating row">
+        <div class="col-md-4">
+          <h5><p class="lead"><%= rating.rating %> thumbs up out of 5</p></h5>
+          <p>Date Added: <%= rating["date"] %></p>
+          <% if the_user.present? %>
+            <p>by <%= the_user["username"] %></p>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+          <p class="lead"> <%= rating.feedback %></p>
+        </div>
+      </div>
     <% end %>
 
-    </div>
+  </div>
+</div>
