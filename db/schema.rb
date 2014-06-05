@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601015408) do
+ActiveRecord::Schema.define(version: 20140605013951) do
 
   create_table "courses", force: true do |t|
     t.string  "dept"
     t.integer "course_no"
-    t.string  "course_name"
+    t.text    "course_name", limit: 255
   end
 
   create_table "professors", force: true do |t|
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140601015408) do
     t.integer "rating"
     t.text    "feedback",   limit: 255
     t.integer "section_id"
+    t.integer "user_id"
   end
 
   create_table "sections", force: true do |t|

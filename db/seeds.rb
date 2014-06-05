@@ -605,9 +605,9 @@ andriszoltners = Professor.create("pfirst_name" => "Andris", "plast_name" => "Zo
 
 
 Section.delete_all
-finc430chopra = Section.create("course_id" => finc430.id, "professor_id" => navinchopra.id)
-finc430braun = Section.create("course_id" => finc430.id, "professor_id" => phillipbraun.id)
-hema914calkins = Section.create("course_id" => hema914.id, "professor_id" => timothycalkins.id)
+finc430navinchopra = Section.create("course_id" => finc430.id, "professor_id" => navinchopra.id)
+finc430philipbraun = Section.create("course_id" => finc430.id, "professor_id" => phillipbraun.id)
+hema914timothycalkins = Section.create("course_id" => hema914.id, "professor_id" => timothycalkins.id)
 mecn430liadwagman = Section.create("course_id" => mecn430.id, "professor_id" => liadwagman.id)
 mecn430vladmares = Section.create("course_id" => mecn430.id, "professor_id" => vladmares.id)
 mecn430willemienkets = Section.create("course_id" => mecn430.id, "professor_id" => willemienkets.id)
@@ -770,7 +770,12 @@ real922jacquesgordon = Section.create("course_id" => real922.id, "professor_id" 
 real925williambennett = Section.create("course_id" => real925.id, "professor_id" => williambennett.id)
 
 
+User.delete_all
+mollyw = User.create("username" => "mollyw", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
+williams = User.create("username" => "williams", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
+
 Rating.delete_all
-Rating.create("section_id" => mgmt431craiggarthwaite.id, "rating" => "6", "feedback" => "Perfect!")
-Rating.create("section_id" => real925williambennett.id, "rating" => "8", "feedback" => "the best!")
-Rating.create("section_id" => real925williambennett.id, "rating" => "3", "feedback" => "Awesome!")
+Rating.create("section_id" => finc430navinchopra["id"], "user_id" => williams["id"], "rating" => 4, "feedback" => "Great!")
+Rating.create("section_id" => mgmt431craiggarthwaite["id"], "user_id" => williams["id"], "rating" => 5, "feedback" => "Perfect!")
+Rating.create("section_id" => hema914timothycalkins["id"], "user_id" => williams["id"], "rating" => 2, "feedback" => "The Best!")
+Rating.create("section_id" => hema914timothycalkins["id"], "user_id" => mollyw["id"], "rating" => 3, "feedback" => "Awesome!")

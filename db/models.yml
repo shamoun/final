@@ -11,6 +11,7 @@ Course:
 
 Rating:
   - section_id: integer
+  - user_id: integer
   - rating: integer
   - feedback: text
 
