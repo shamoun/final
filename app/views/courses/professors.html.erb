@@ -1,19 +1,20 @@
 <% course_id = params["id"] %>
 <% course = Course.read(course_id) %>
-<% section = Section.where("course_id" => course["id"]) %>
+<% sections = Section.where("course_id" => course_id) %>
 
 <h2> <font face="verdana" color=purple><%= course["dept"] %> <%= course["course_no"] %>: <%= course["course_name"] %></font></h2>
 
 <h3>Choose a professor: </h3>
 
     <% if Section.where("course_id" => course["id"]).count == 0 %>
-      <p>No professors listed yet. Add a professor!</p>
+      <p>No professors listed yet. <%= link_to "Add a professor for this course!", "/sections/newprof" %></p>
     <% end %>
     <ul>
 
-      <% section.each do |list| %>
+      <% sections.each do |section| %>
 
-      <% professor = Professor.order("plast_name asc").find_by("id" => list["professor_id"]) %>
+      <% professor = Professor.order("plast_name asc").find_by("id" => section["professor_id"]) %>
+      Section.where("course_id" => c.id).order("plast_name asc").joins(:professor)
 
       <div class="column">
         <div class="col-md-4">

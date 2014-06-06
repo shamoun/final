@@ -2,9 +2,9 @@
 
 <div class="row">
   <div class="col-md-10">
-<% department = Course.pluck("dept").uniq %>
-<% department.each do |tiger| %>
-<%= link_to tiger, "/courses?id=#{tiger["dept"]}"  %> |
+<% departments = Course.pluck("dept").uniq %>
+<% departments.each do |tiger| %>
+<%= link_to tiger, "/courses?dept=#{tiger}"  %> |
 
 <% end %>
 
@@ -21,7 +21,6 @@
 table,th,td
 
 </style>
-<table >
 
 <% all_courses = Course.order("dept asc, course_no asc") %>
 <% if params["dept"].present? %>

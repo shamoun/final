@@ -52,10 +52,6 @@ Final::Application.routes.draw do
 
 
 
-  get "/sections/:id" => "sections#show"
-
-
-
   # --- Create
   get "/users/new" => 'users#new'
   post "/users" => 'users#create'
@@ -70,6 +66,22 @@ Final::Application.routes.draw do
 
   # --- Delete
   delete "/users/:id" => 'users#destroy'
+
+
+
+
+  # --- Create
+  get "/sections/newprof" => 'sections#newprof'
+  post "/sections" => 'sections#create'
+
+  # --- Create
+  get "/sections/newcourse" => 'sections#newcourse'
+  post "/sections" => 'sections#create'
+
+  # --- Read
+  get "/sections" => 'sections#index'
+  get "/sections/:id" => 'sections#show'
+
 
 
 

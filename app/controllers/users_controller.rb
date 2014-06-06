@@ -32,9 +32,9 @@ class UsersController < ApplicationController
     the_user = User.find_by(params["id"])
     the_user.update("username" => params["username"],
                   "password" => params["password"],
-                  "first name" => params["firstname"],
-                  "last name" => params["lastname"])
-    redirect_to '/users/#{the_user["id"]}'
+                  "firstname" => params["firstname"],
+                  "lastname" => params["lastname"])
+    redirect_to "/users/#{the_user["id"]}"
   end
 
 end
