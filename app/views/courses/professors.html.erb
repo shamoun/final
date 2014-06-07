@@ -14,12 +14,12 @@
       <% sections.each do |section| %>
 
       <% professor = Professor.order("plast_name asc").find_by("id" => section["professor_id"]) %>
-      Section.where("course_id" => c.id).order("plast_name asc").joins(:professor)
+
 
       <div class="column">
         <div class="col-md-4">
          <%= image_tag(professor["photo_url"], "height" => 250, "width" => 200) %>
-         <p><h4><%= professor["pfirst_name"] %> <%= link_to professor["plast_name"], "/sections/#{list["id"]}" %></h4></p>
+         <p><h4><%= professor["pfirst_name"] %> <%= link_to professor["plast_name"], "/sections/#{section["id"]}" %></h4></p>
      </div>
 
       <% end %>
