@@ -7,17 +7,22 @@
 
 <div class="row">
  <div class="col-md-8">
+
+  <%= form_tag "/professors/search", "method" => "post"  %>
+
     <div class="form-group">
         <%= label_tag "plast_name", "What is the professor's last name?" %>
         <%= text_field_tag "plast_name", "", "class" => "form-control" %>
-        <%= link_to "Find my professor!", "/professors?name=#{"plast_name"}", "class" => 'btn btn-lg btn-success' %>
+        <%= submit_tag "Find my professor", "class" => "btn btn-lg btn-success" %>
     </div>
+  </form>
+  </div>
   </div>
 </div>
 
 <% all_profs = Professor.order("plast_name asc, pfirst_name asc") %>
 <% if params["name"].present? %>
-    <% all_profs = Professor.where(“plast_name LIKE ?”, "#{params[“name”]}%”)".order("pfirst_name asc") %>
+    <% all_profs = Professor.where(“plast_name LIKE ?”, “#{params[“name”]}%”).order("pfirst_name asc") %>
 <% end %>
 
     <% all_profs.each do |professor| %>
