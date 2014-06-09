@@ -1,8 +1,6 @@
 <% section_no = params["id"] %>
 <% section = Section.read(section_no) %>
 
-<% review = Rating.read(section_no) %>
-
 <% professor = Professor.find_by("id" => section["professor_id"]) %>
 <% course = Course.find_by("id" => section["course_id"]) %>
 
