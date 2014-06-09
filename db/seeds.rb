@@ -773,6 +773,7 @@ real925williambennett = Section.create("course_id" => real925.id, "professor_id"
 User.delete_all
 mollyw = User.create("username" => "mollyw", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
 williams = User.create("username" => "williams", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
+jess = User.create("username" => "jess", "password" => "password", "firstname" => "Jess", "lastname" => "Shamoun")
 
 Rating.delete_all
 Rating.create("section_id" => finc430navinchopra["id"], "user_id" => williams["id"], "rating" => 4, "feedback" => "Great!")
