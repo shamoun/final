@@ -17,7 +17,7 @@
 
 <% all_profs = Professor.order("plast_name asc, pfirst_name asc") %>
 <% if params["name"].present? %>
-<%   all_profs = Professor.where(“plast_name LIKE ?", 'params["name"]%'] ).order("pfirst_name asc") %>
+    <% all_profs = Professor.where(“plast_name LIKE ?”, "#{params[“name”]}%”)".order("pfirst_name asc") %>
 <% end %>
 
     <% all_profs.each do |professor| %>
@@ -30,8 +30,8 @@
 
         <div class="col-md-8">
           <h3> <%= professor["pfirst_name"] %> <%= link_to professor["plast_name"], "/professors/#{professor["id"]}" %> </h3> <%= link_to "edit", "/professors/#{professor["id"]}/edit" %> | <%= link_to "delete", "/professors/#{professor["id"]}", "method" => "delete" %>
-
         </div>
-    </div>
 
-<% end %>
+      </div>
+
+  <% end %>
