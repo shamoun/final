@@ -1,5 +1,6 @@
 <% section_no = params["id"] %>
 <% section = Section.read(section_no) %>
+<% review = Rating.read(section_no) %>
 
 <% professor = Professor.find_by("id" => section["professor_id"]) %>
 <% course = Course.find_by("id" => section["course_id"]) %>
@@ -8,11 +9,11 @@
 
   <div class="col-md-4">
     <%= image_tag(professor["photo_url"], "height" => 250, "width" => 200) %>
-  </div>
+    </div>
 
   <div class="col-md-8">
     <h1><%= course["course_name"] %>
-     <p><small>Professor: <%= professor["pfirst_name"] %> <%= professor["plast_name"] %></small></p>
+      <p><small>Professor: <%= professor["pfirst_name"] %> <%= professor["plast_name"] %></small></p>
     </h1>
     <% avg = Rating.where("section_id" => params["id"]).average(:rating).to_i %>
     <h4>Avg Rating:
@@ -32,7 +33,6 @@
       <%= hidden_field_tag "section_id", section["id"] %>
 
 
-      <p></p>
       <div class="form-group">
         <%= label_tag :rating %>
         <%= select_tag :rating, options_for_select(['5 thumbs up','4 thumbs up','3 thumbs up','2 thumbs up','1 thumbs up']) %>
@@ -40,28 +40,26 @@
       </div>
 
       <%= submit_tag "Submit", "class" => "btn btn-lg btn-success" %>
-    <% end %></div>
+    <% end %>
+    </div>
 
-<p></p>
-<p></p>
-
-    <p><strong><h3>Student Ratings:</h3></strong></p>
+    <p><h3><strong>Student Ratings:</strong></h3></p>
     <hr>
     <% Rating.where("section_id" => params["id"]).each do |rating| %>
       <% the_user = User.find_by("id" => rating["user_id"]) %>
       <div class="rating row">
-        <div class="col-md-4">
-          <h5><p class="lead"><%= rating.rating %> thumbs up out of 5</p></h5>
-          <p>Date Added: <%= rating["date"] %></p>
+        <div class="col-md-3">
+          <p class="lead"><%= rating.rating %> thumbs up out of 5</p>
+          <p>Date added: <%= rating["date"].strftime('%x') %>
           <% if the_user.present? %>
-            <p>by <%= the_user["username"] %></p>
+            <p>Reviewed by: <%= the_user["username"] %></p>
           <% end %>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
           <p class="lead"> <%= rating.feedback %></p>
         </div>
       </div>
     <% end %>
 
-  </div>
+
 </div>

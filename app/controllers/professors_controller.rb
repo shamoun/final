@@ -6,9 +6,6 @@ def create
     redirect_to "/professors"
   end
 
-def search
-    redirect_to "/professors/name?={params["plast_name"]}"
- end
 
 def destroy
     professor = Professor.find_by("id" => params["id"])
