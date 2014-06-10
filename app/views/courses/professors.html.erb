@@ -6,9 +6,6 @@
 
 <h3>Choose a professor: </h3>
 
-    <% if Section.where("course_id" => course["id"]).count == 0 %>
-      <p>No professors listed yet. <%= link_to "Add a professor for this course!", "/sections/newprof" %></p>
-    <% end %>
     <ul>
 
       <% sections.each do |section| %>
@@ -20,7 +17,14 @@
         <div class="col-md-4">
          <%= image_tag(professor["photo_url"], "height" => 250, "width" => 200) %>
          <p><h4><%= professor["pfirst_name"] %> <%= link_to professor["plast_name"], "/sections/#{section["id"]}" %></h4></p>
+        </div>
      </div>
 
       <% end %>
     </ul>
+
+  <div class="row">
+    <div class="col-md-5">
+    <%= link_to "Don't See Your Professor? Add a New Section", "/sections/newprof", "class" => 'btn btn-lg btn-primary' %>
+    </div>
+  </div>
