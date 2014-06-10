@@ -71,8 +71,8 @@ Final::Application.routes.draw do
 
 
   # --- Create
-  get "/sections/newprof" => 'sections#newprof'
-  post "/sections/newprofessor" => 'sections#create'
+  get "/sections/:id/newprof" => 'sections#newprof'
+  post "/sections/:id/newprofessor" => 'sections#create'
 
   # --- Create
   get "/sections/newcourse" => 'sections#newcourse'

@@ -917,9 +917,14 @@ real925williambennett = Section.create("course_id" => real925.id, "professor_id"
 User.delete_all
 mollyw = User.create("username" => "mollyw", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
 williams = User.create("username" => "williams", "password" => "password", "firstname" => "Molly", "lastname" => "Williams")
+shamoun = User.create("username" => "shamoun", "password" => "password", "firstname" => "Jessica", "lastname" => "Shamoun")
 
 Rating.delete_all
-Rating.create("section_id" => finc430navinchopra["id"], "user_id" => williams["id"], "rating" => 4, "feedback" => "Great!")
-Rating.create("section_id" => mgmt431craiggarthwaite["id"], "user_id" => williams["id"], "rating" => 5, "feedback" => "Perfect!")
-Rating.create("section_id" => hema914timothycalkins["id"], "user_id" => williams["id"], "rating" => 2, "feedback" => "The Best!")
+Rating.create("section_id" => finc430navinchopra["id"], "user_id" => williams["id"], "rating" => 4, "feedback" => "Interesting class. Learned a lot. Chopra is hilarious.")
+Rating.create("section_id" => mgmt431craiggarthwaite["id"], "user_id" => williams["id"], "rating" => 5, "feedback" => "Very high level class. Not worth the time.")
+Rating.create("section_id" => hema914timothycalkins["id"], "user_id" => williams["id"], "rating" => 2, "feedback" => "Calkins is laid back but interesting. Manageable workload.")
 Rating.create("section_id" => hema914timothycalkins["id"], "user_id" => mollyw["id"], "rating" => 3, "feedback" => "Awesome!")
+Rating.create("section_id" => kiei925jeffreycohen["id"], "user_id" => shamoun["id"], "rating" => 5, "feedback" => "Jeff is awesome. Best class ever!")
+Rating.create("section_id" => kiei925jeffreycohen["id"], "user_id" => shamoun["id"], "rating" => 5, "feedback" => "Best class I have taken at Kellogg.")
+Rating.create("section_id" => kiei925jeffreycohen["id"], "user_id" => shamoun["id"], "rating" => 5, "feedback" => "Everyone should take this class. Jeff and Brian are worth every bid point.")
+Rating.create("section_id" => kiei925jeffreycohen["id"], "user_id" => shamoun["id"], "rating" => 15, "feedback" => "So lucky that we have the opportunity to learn programming as MBA students. Don't miss it. And you couldn't ask for more patient teachers than Jeff and Brian.")
