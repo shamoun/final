@@ -27,12 +27,6 @@ Final::Application.routes.draw do
   get "/ratings" => 'ratings#index'
   get "/ratings/:id" => 'ratings#show'
 
-  # -- Update
-  get "/ratings/:id/edit" => 'ratings#edit'
-  patch "/ratings/:id" => 'ratings#update'
-
-  # --- Delete
-  delete "/ratings/:id" => 'ratings#destroy'
 
 
     # --- Create
@@ -73,10 +67,6 @@ Final::Application.routes.draw do
   # --- Create
   get "/sections/:id/newprof" => 'sections#newprof'
   post "/sections/:id/newprofessor" => 'sections#create'
-
-  # --- Create
-  get "/sections/newcourse" => 'sections#newcourse'
-  post "/sections" => 'sections#create'
 
   # --- Read
   get "/sections" => 'sections#index'
